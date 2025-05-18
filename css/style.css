@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+a{
+    display: inline-block;
+    text-decoration: none;
+}
+ul,ol{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+h1,h2,h3,h4,h5,h6,p{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    --primary: #001837;
+    --secondary: #565656;
+    --hover: #FBA311;
+    --white: #F0F2F4;
+    --quick: "Quicksand", serif;
+    --opensans: "Open Sans", serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    /* background: url(../Image/Image.png); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #37f7e7;
+    flex-direction: column;
+    gap: 20px;
+}
+.result{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-weight: 600;
+    color: #fff;
+    /* background-color: #34c508; */
+    padding: 5px 20px;
+}
+.container{
+    width: 600px;
+    min-height: 600px;
+    /* background-color: #ffffff; */
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.box_size{
+    height: 100px;
+    width: 100px;
+    border: none;
+    background-color: #7bf577;
+    font-family: 'Times New Roman', Times, serif;
+    color: #F0F2F4;
+    border-radius: 10px;
+    font-size: 60px;
+    font-weight: 600;
+    box-shadow: 10px 10px 10px rgba(27, 87, 253, 0.2);
+}
+.reset{
+    border: none;
+    background-color: red;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: #F0F2F4;
+    padding: 5px 20px;
+}
+
+
+/* echo "# tictactoe" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/ATM-Sakayet-Hossain/tictactoe.git
+git push -u origin main */
