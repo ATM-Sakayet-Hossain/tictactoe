@@ -1,84 +1,249 @@
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+/* Importing Google Fonts - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-a{
-    display: inline-block;
-    text-decoration: none;
-}
-ul,ol{
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-h1,h2,h3,h4,h5,h6,p{
-    margin: 0;
-    padding: 0;
-}
-:root{
-    --primary: #001837;
-    --secondary: #565656;
-    --hover: #FBA311;
-    --white: #F0F2F4;
-    --quick: "Quicksand", serif;
-    --opensans: "Open Sans", serif;
-}
-body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    /* background: url(../Image/Image.png); */
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: #37f7e7;
-    flex-direction: column;
-    gap: 20px;
-}
-.result{
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 30px;
-    font-weight: 600;
-    color: #fff;
-    /* background-color: #34c508; */
-    padding: 5px 20px;
-}
-.container{
-    width: 600px;
-    min-height: 600px;
-    /* background-color: #ffffff; */
-    border-radius: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
-.box_size{
-    height: 100px;
-    width: 100px;
-    border: none;
-    background-color: #7bf577;
-    font-family: 'Times New Roman', Times, serif;
-    color: #F0F2F4;
-    border-radius: 10px;
-    font-size: 60px;
-    font-weight: 600;
-    box-shadow: 10px 10px 10px rgba(27, 87, 253, 0.2);
-}
-.reset{
-    border: none;
-    background-color: red;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 20px;
-    font-weight: 400;
-    color: #F0F2F4;
-    padding: 5px 20px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
+body {
+  background: #5372F0;
+}
 
-/* echo "# tictactoe" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/ATM-Sakayet-Hossain/tictactoe.git
-git push -u origin main */
+.select-box,
+.play-board,
+.result-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+}
+
+.select-box {
+  background: #fff;
+  padding: 20px 25px 25px;
+  border-radius: 5px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.select-box.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.select-box header {
+  font-size: 30px;
+  font-weight: 600;
+  padding-bottom: 10px;
+  border-bottom: 1px solid lightgrey;
+  text-align: center;
+}
+
+.select-box .title {
+  font-size: 22px;
+  font-weight: 500;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.select-box .options {
+  display: flex;
+  width: 100%;
+}
+
+.options button {
+  width: 100%;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px 0;
+  border: none;
+  background: #5372F0;
+  border-radius: 5px;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.options button:hover,
+.btn button:hover {
+  background: #2c52ed;
+}
+
+.options button.playerX {
+  margin-right: 5px;
+}
+
+.options button.playerO {
+  margin-left: 5px;
+}
+
+.select-box .credit {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.select-box .credit a {
+  color: #5372F0;
+  text-decoration: none;
+}
+
+.select-box .credit a:hover {
+  text-decoration: underline;
+}
+
+.play-board {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+.play-board.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.play-board .details {
+  padding: 7px;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.play-board .players {
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+}
+
+.players span {
+  position: relative;
+  z-index: 2;
+  color: #5372F0;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px 0;
+  width: 100%;
+  text-align: center;
+  cursor: default;
+  user-select: none;
+  transition: all 0.3 ease;
+}
+
+.players.active span:first-child {
+  color: #fff;
+}
+
+.players.active span:last-child {
+  color: #5372F0;
+}
+
+.players span:first-child {
+  color: #fff;
+}
+
+.players .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: #5372F0;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.players.active .slider {
+  left: 50%;
+}
+
+.players.active span:first-child {
+  color: #5372F0;
+}
+
+.players.active span:nth-child(2) {
+  color: #fff;
+}
+
+.players.active .slider {
+  left: 50%;
+}
+
+.play-area {
+  margin-top: 20px;
+}
+
+.play-area section {
+  display: flex;
+  margin-bottom: 1px;
+}
+
+.play-area section span {
+  display: block;
+  height: 90px;
+  width: 90px;
+  margin: 2px;
+  color: #5372F0;
+  font-size: 40px;
+  line-height: 80px;
+  text-align: center;
+  border-radius: 5px;
+  background: #fff;
+}
+
+.result-box {
+  padding: 25px 20px;
+  border-radius: 5px;
+  max-width: 400px;
+  width: 100%;
+  opacity: 0;
+  text-align: center;
+  background: #fff;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+.result-box.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.result-box .won-text {
+  font-size: 30px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+}
+
+.result-box .won-text p {
+  font-weight: 600;
+  margin: 0 5px;
+}
+
+.result-box .btn {
+  width: 100%;
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn button {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 20px;
+  border: none;
+  background: #5372F0;
+  border-radius: 5px;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
